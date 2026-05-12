@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Public Sans", sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg: #FFF9E6;
+    --ink: #1A1A1A;
+    --accent1: #FF5E5B;
+    --accent2: #00CECB;
+    --accent3: #FFED66;
+    --accent4: #8367C7;
+    --shadow: #1A1A1A;
+  }
+
+  body {
+    @apply bg-[var(--bg)] text-[var(--ink)] selection:bg-[var(--accent2)] overflow-x-hidden;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .vibrant-card {
+    @apply bg-white border-4 border-[var(--ink)] rounded-[32px] transition-all duration-100;
+    box-shadow: 8px 8px 0 var(--shadow);
+  }
+
+  .vibrant-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--shadow);
+  }
+
+  .vibrant-btn {
+    @apply bg-[var(--accent2)] border-4 border-[var(--ink)] rounded-[20px] px-6 py-4 font-black uppercase text-sm transition-all cursor-pointer inline-block;
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+
+  .vibrant-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--shadow);
+  }
+
+  .vibrant-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0 var(--shadow);
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px var(--ink);
+  }
+
+  .accent-red { background-color: var(--accent1); }
+  .accent-cyan { background-color: var(--accent2); }
+  .accent-yellow { background-color: var(--accent3); }
+  .accent-purple { background-color: var(--accent4); }
+}
+
